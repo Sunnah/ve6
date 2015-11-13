@@ -1,0 +1,22 @@
+
+doctype html
+html(lang="is")
+  head
+    title= title
+    link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
+    link(rel='stylesheet' href='/stylesheets/style.css')
+  body
+    if session && session.user
+      p skráður inn sem 
+        span= session.user.name
+    header
+      .left
+        h1 Stórskemmtilega síðan, "skrifaðu á vegg"
+        ul.list-inline
+          li: a(href='/login').btn Innskrá
+          li: a(href='/create').btn Nýskrá
+      
+    main
+      block content
+    
+  script(src="/javascripts/frontend.js")

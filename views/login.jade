@@ -1,0 +1,14 @@
+extends layout
+
+block content
+
+  .col-md-9
+    p Skráðu þig inn og þú getur skrifað á vegginn
+    form(method="post")
+      fieldset.form-group
+        label(for="username") Notendanafn
+        input(id="username" type="text" placeholder="notendanafn" name="username").form-control
+      fieldset.form-group
+        label(for="password") Lykilorð
+        input(id="password" type="password" name="password" placeholder="lykilorð").form-control
+      input(type="submit" value="Fara að veggnum").form-control

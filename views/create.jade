@@ -1,0 +1,23 @@
+extends layout
+
+block content
+
+  .col-md-9
+    form(method='post', action='/create')
+       if post
+         if !success
+           p Villa við að útbúa notanda
+         else
+           p Notandi búinn til!
+    form(method="post")
+      fieldset.form-group
+        label(for="username") Notendanafn
+        input(id="username" type="text" placeholder="notendanafn" name="username").form-control
+       fieldset.form-group
+        label(for="password") Lykilorð
+        input(id="password" type="password" name="password" placeholder="lykilorð").form-control
+      input(type="submit" value="Búa til notenda").form-control
+
+
+    
+

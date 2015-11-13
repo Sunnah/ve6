@@ -1,0 +1,30 @@
+doctype html
+html(lang="is")
+	head
+		title= title
+		link(href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet")
+		link(rel='stylesheet' href='/stylesheets/style.css')
+	body
+		if session && session.user
+			p skráður inn sem 
+			span= session.user.name
+		header
+			.left
+				h1 Stórskemmtilega síðan, "skrifaðu á vegg"
+				ul.list-inline
+					li: a(href='/logout').btn Útskrá
+			.col-md-9
+				p Innskráður sem #{user.username}
+				form(method="post")
+					fieldset.form-group
+						label(for="text") Skilaboð
+						textarea#textarea.form-control(rows='20', placeholder='Skrifaðu hér til að skrifa á vegginn' name="text")
+						input(type="submit" value="Skilja eftir skilaboð").form-control
+		.col-md-3
+			if entries
+				each u in entries
+					.list-group-item 
+						h4 #{u.text}
+						h5 #{u.username} skrifaði þann #{u.date} 
+
+	script(src="/javascripts/frontend.js")
